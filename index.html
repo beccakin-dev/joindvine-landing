@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DVine — A Bible Reading Companion</title>
+  <meta name="description" content="Daily readings. Deeper insights. Multiple perspectives on life's biggest questions. DVine is the Bible companion for people who want to think, not just read.">
+  <meta property="og:title" content="DVine — A Bible Reading Companion">
+  <meta property="og:description" content="Daily readings. Deeper insights. Multiple perspectives on life's biggest questions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://joindvine.com">
+  <meta property="og:image" content="https://joindvine.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple-deep: #1e1b4b;
+      --purple-mid: #312e81;
+      --purple-light: #4c1d95;
+      --gold: #fbbf24;
+      --gold-hover: #f59e0b;
+      --white: #ffffff;
+      --white-70: rgba(255,255,255,0.7);
+      --white-50: rgba(255,255,255,0.5);
+      --white-30: rgba(255,255,255,0.3);
+      --white-10: rgba(255,255,255,0.1);
+      --white-06: rgba(255,255,255,0.06);
+      --glass-bg: rgba(255,255,255,0.06);
+      --glass-border: rgba(255,255,255,0.1);
+      --max-width: 1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', -apple-system, sans-serif;
+      background: var(--purple-deep);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- NAV ---- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(30,27,75,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--white-06);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 22px; font-weight: 800;
+      text-decoration: none;
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-logo span {
+      background: linear-gradient(135deg, var(--gold), #fde68a);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--gold);
+      color: var(--purple-deep);
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-hover); transform: translateY(-1px); }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: linear-gradient(160deg, var(--purple-deep) 0%, var(--purple-mid) 40%, var(--purple-light) 100%);
+      overflow: hidden;
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: 0.3;
+      animation: float 8s ease-in-out infinite;
+    }
+    .hero-orb-1 { width: 400px; height: 400px; background: #7c3aed; top: -100px; right: -100px; }
+    .hero-orb-2 { width: 300px; height: 300px; background: var(--gold); bottom: -50px; left: -80px; animation-delay: -4s; opacity: 0.15; }
+    .hero-orb-3 { width: 200px; height: 200px; background: #a78bfa; top: 30%; left: 60%; animation-delay: -2s; opacity: 0.2; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 100px;
+      font-size: 13px; font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 32px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position: relative;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800; line-height: 1.1;
+      max-width: 700px; margin-bottom: 24px; position: relative;
+    }
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold), #fde68a);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--white-70); max-width: 540px;
+      line-height: 1.6; margin-bottom: 40px;
+      font-weight: 500; position: relative;
+    }
+    .hero-cta {
+      display: inline-block; padding: 16px 40px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-hover));
+      color: var(--purple-deep); text-decoration: none;
+      border-radius: 14px; font-weight: 700; font-size: 17px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(251,191,36,0.3);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(251,191,36,0.4); }
+    .hero-cta-sub {
+      display: block; margin-top: 12px;
+      font-size: 13px; color: var(--white-50);
+      font-weight: 500; position: relative;
+    }
+
+    /* ---- SOCIAL PROOF ---- */
+    .proof {
+      padding: 48px 24px;
+      background: var(--glass-bg);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .proof-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .proof-stat { text-align: center; }
+    .proof-label {
+      font-size: 14px; color: var(--white-70);
+      font-weight: 600;
+    }
+
+    /* ---- SECTION SHARED ---- */
+    .section {
+      padding: 100px 24px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2px;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800; line-height: 1.2; margin-bottom: 20px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--white-70);
+      max-width: 560px; line-height: 1.6; margin-bottom: 48px;
+    }
+    .fade-in {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---- FEATURES ---- */
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .feature-card {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: 20px; padding: 36px 28px;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    }
+    /* feature-card is static display — no hover effect */
+    .feature-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 20px;
+    }
+    .feature-icon-read { background: rgba(59,130,246,0.15); }
+    .feature-icon-guide { background: rgba(168,85,247,0.15); }
+    .feature-icon-seek { background: rgba(251,191,36,0.15); }
+    .feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .feature-card p { font-size: 15px; color: var(--white-70); line-height: 1.6; }
+
+    /* ---- HOW IT WORKS ---- */
+    .how-section { background: linear-gradient(180deg, transparent 0%, rgba(76,29,149,0.3) 50%, transparent 100%); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .step { text-align: center; position: relative; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-hover));
+      color: var(--purple-deep);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 800; margin: 0 auto 20px;
+    }
+    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--white-70); line-height: 1.5; max-width: 260px; margin: 0 auto; }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: 20px; padding: 32px 24px;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      position: relative;
+    }
+    .testimonial-quote {
+      font-size: 48px; color: var(--gold); opacity: 0.3;
+      position: absolute; top: 16px; left: 24px;
+      font-family: Georgia, serif; line-height: 1;
+    }
+    .testimonial-text {
+      font-size: 15px; color: var(--white-70); line-height: 1.7;
+      margin-bottom: 20px; margin-top: 16px; font-style: italic;
+    }
+    .testimonial-author { font-size: 14px; font-weight: 600; }
+    .testimonial-role { font-size: 12px; color: var(--white-50); margin-top: 2px; }
+
+    /* ---- PRO SECTION ---- */
+    .pro-section {
+      background: var(--glass-bg);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .pro-inner { max-width: var(--max-width); margin: 0 auto; padding: 100px 24px; }
+    .pro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 700px; margin: 0 auto; }
+    .pro-col {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: 20px; padding: 36px 28px; text-align: center;
+    }
+    .pro-col-pro { border-color: var(--gold); position: relative; }
+    .pro-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold), var(--gold-hover));
+      color: var(--purple-deep); padding: 4px 16px; border-radius: 100px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .pro-col h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .pro-price { font-size: 14px; color: var(--white-50); margin-bottom: 24px; }
+    .pro-price strong { font-size: 32px; font-weight: 800; color: var(--white); }
+    .pro-list { list-style: none; text-align: left; }
+    .pro-list li {
+      padding: 10px 0; font-size: 14px; color: var(--white-70);
+      display: flex; align-items: center; gap: 10px;
+      border-bottom: 1px solid var(--white-06);
+    }
+    .pro-list li:last-child { border-bottom: none; }
+    .pro-check { color: #22c55e; font-weight: 700; }
+    .pro-x { color: var(--white-30); }
+    .pro-list .collapsed { display: none; }
+    .pro-toggle {
+      display: block; width: 100%; margin-top: 16px;
+      background: none; border: none; color: var(--gold);
+      font-family: inherit; font-size: 13px; font-weight: 600;
+      cursor: pointer; padding: 8px 0;
+      transition: opacity 0.2s;
+    }
+    .pro-toggle:hover { opacity: 0.8; }
+
+    /* ---- FINAL CTA ---- */
+    .final-cta {
+      text-align: center; padding: 120px 24px;
+      position: relative;
+      background: linear-gradient(180deg, transparent 0%, rgba(76,29,149,0.4) 100%);
+    }
+    .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: 16px; }
+    .final-cta p {
+      font-size: 17px; color: var(--white-70);
+      margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer { text-align: center; padding: 40px 24px; border-top: 1px solid var(--white-06); }
+    .footer-links { margin-bottom: 16px; }
+    .footer-links a {
+      color: var(--white-50); text-decoration: none;
+      font-size: 13px; font-weight: 500; margin: 0 16px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 12px; color: var(--white-30); }
+
+    /* ---- CHAT WIDGET ---- */
+    .chat-fab {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-hover));
+      color: var(--purple-deep); border: none; border-radius: 100px;
+      font-family: inherit; font-size: 14px; font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(251,191,36,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .chat-fab:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(251,191,36,0.5); }
+    .chat-panel {
+      display: none;
+      position: fixed; bottom: 24px; right: 24px; z-index: 201;
+      width: 420px; max-height: 70vh;
+      background: rgba(30,27,75,0.95);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    }
+    .chat-panel.open { display: flex; }
+    .chat-header {
+      padding: 16px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--white-06);
+    }
+    .chat-header-left { display: flex; align-items: center; gap: 10px; }
+    .chat-header-left img { width: 28px; height: 28px; border-radius: 7px; }
+    .chat-header h4 { font-size: 15px; font-weight: 700; }
+    .chat-header-sub { font-size: 11px; color: var(--white-50); }
+    .chat-close {
+      background: none; border: none; color: var(--white-50);
+      font-size: 20px; cursor: pointer; padding: 4px;
+      line-height: 1;
+    }
+    .chat-close:hover { color: var(--white); }
+    .chat-mode-toggle {
+      display: flex; padding: 8px 16px; gap: 6px;
+      border-bottom: 1px solid var(--white-06);
+    }
+    .chat-mode-btn {
+      flex: 1; padding: 8px 0; border: none;
+      background: transparent; color: var(--white-50);
+      font-family: inherit; font-size: 12px; font-weight: 600;
+      border-radius: 8px; cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .chat-mode-btn.active {
+      background: rgba(251,191,36,0.15); color: var(--gold);
+    }
+    .chat-mode-btn:hover:not(.active) { color: var(--white-70); }
+    .chat-messages {
+      flex: 1; overflow-y: auto; padding: 16px 20px;
+      display: flex; flex-direction: column; gap: 12px;
+      min-height: 200px;
+    }
+    .chat-msg {
+      max-width: 85%; padding: 12px 16px;
+      border-radius: 16px; font-size: 14px; line-height: 1.5;
+      word-wrap: break-word;
+    }
+    .chat-msg-user {
+      align-self: flex-end;
+      background: rgba(165,180,252,0.2);
+      border-bottom-right-radius: 4px;
+    }
+    .chat-msg-ai {
+      align-self: flex-start;
+      background: var(--glass-bg);
+      border: 1px solid var(--white-06);
+      border-bottom-left-radius: 4px;
+      color: var(--white-70);
+    }
+    .chat-msg-system {
+      align-self: center;
+      text-align: center;
+      background: none; border: none;
+      color: var(--white-50);
+      font-size: 13px; padding: 8px 0;
+      max-width: 100%;
+    }
+    .chat-input-row {
+      padding: 12px 16px;
+      border-top: 1px solid var(--white-06);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .chat-input {
+      flex: 1; background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px; padding: 10px 14px;
+      color: var(--white); font-family: inherit;
+      font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .chat-input::placeholder { color: var(--white-30); }
+    .chat-input:focus { border-color: var(--gold); }
+    .chat-send {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--gold); border: none;
+      color: var(--purple-deep); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .chat-send:hover { background: var(--gold-hover); }
+    .chat-send:disabled { opacity: 0.4; cursor: not-allowed; }
+    .chat-limit-cta {
+      display: inline-block; margin-top: 12px;
+      padding: 10px 20px;
+      background: var(--gold); color: var(--purple-deep);
+      text-decoration: none; border-radius: 10px;
+      font-weight: 700; font-size: 13px;
+    }
+    .chat-typing {
+      display: inline-flex; gap: 4px; padding: 12px 16px;
+      align-self: flex-start;
+    }
+    .chat-typing span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--white-30);
+      animation: typing-bounce 1.2s ease-in-out infinite;
+    }
+    .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing-bounce {
+      0%, 100% { opacity: 0.3; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-4px); }
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .features-grid, .steps, .testimonials-grid { grid-template-columns: 1fr; }
+      .pro-grid { grid-template-columns: 1fr; }
+      .proof-inner { gap: 32px; }
+      .section { padding: 72px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .chat-panel { width: calc(100% - 32px); left: 16px; right: 16px; max-height: 70vh; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="/" class="nav-logo"><img src="/icon.png" alt="DVine icon"><span>DVine</span></a>
+    <a href="#join" class="nav-cta">Join the Waitlist</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <img src="/icon.png" alt="DVine app icon" style="width: 80px; height: 80px; border-radius: 20px; margin-bottom: 24px; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Now in Beta
+    </div>
+    <h1>A Bible app that helps you <em>think</em>, not just read.</h1>
+    <p class="hero-sub">Daily readings. Deeper insights. Multiple perspectives on life's biggest questions.</p>
+    <form id="heroWaitlistForm" onsubmit="return submitHeroWaitlist(event)" style="display: flex; flex-direction: column; gap: 10px; max-width: 480px; width: 100%; position: relative;">
+      <input type="text" id="heroWaitlistName" placeholder="Your first name" required aria-label="First name" style="width: 100%; padding: 16px 20px; border-radius: 14px; border: 1px solid var(--glass-border); background: var(--glass-bg); color: var(--white); font-family: inherit; font-size: 15px; outline: none; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-sizing: border-box;">
+      <input type="email" id="heroWaitlistEmail" placeholder="Your email" required aria-label="Email address" style="width: 100%; padding: 16px 20px; border-radius: 14px; border: 1px solid var(--glass-border); background: var(--glass-bg); color: var(--white); font-family: inherit; font-size: 15px; outline: none; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-sizing: border-box;">
+      <button type="submit" class="hero-cta" style="width: 100%; padding: 16px 32px; font-size: 15px; border: none; cursor: pointer; margin: 0;">Join</button>
+    </form>
+    <div id="heroWaitlistSuccess" style="display: none; margin-top: 12px; color: #22c55e; font-weight: 600; font-size: 15px; position: relative;">You're on the list! We'll be in touch.</div>
+    <span class="hero-cta-sub">Be the first to know when we launch</span>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="proof">
+    <div class="proof-inner">
+      <div class="proof-stat fade-in">
+        <div class="proof-label">Now in Beta</div>
+      </div>
+      <div class="proof-stat fade-in">
+        <div class="proof-label">Built for thinkers</div>
+      </div>
+      <div class="proof-stat fade-in">
+        <div class="proof-label">Free on iOS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="fade-in">
+      <span class="section-label">Features</span>
+      <h2 class="section-title">Everything you need to go deeper.</h2>
+      <p class="section-sub">DVine is built for the person who doesn't just want to check a box — they want to understand what they're reading.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <div class="feature-icon feature-icon-read">&#x1F4D6;</div>
+        <h3>Daily Reading</h3>
+        <p>Follow reading plans with streak tracking and a calendar that keeps you consistent.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon feature-icon-guide">&#x1F4AC;</div>
+        <h3>Bible Guide</h3>
+        <p>Ask anything about Scripture and get thoughtful, honest answers grounded in the text.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon feature-icon-seek">&#x1F9ED;</div>
+        <h3>Seek</h3>
+        <p>Explore life's biggest questions from multiple perspectives — Scripture, philosophy, science, and more.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon" style="background: rgba(34,197,94,0.15);">&#x1F465;</div>
+        <h3>Community</h3>
+        <p>Join circles of readers on the same journey. Share encouragement, stay accountable, and grow together.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-section">
+    <div class="section">
+      <div class="fade-in" style="text-align: center;">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title" style="max-width: 500px; margin: 0 auto 48px;">Simple rhythm,<br>deeper understanding.</h2>
+      </div>
+      <div class="steps">
+        <div class="step fade-in">
+          <div class="step-num">1</div>
+          <h3>Read</h3>
+          <p>Get your daily passage from a plan that meets you where you are.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step-num">2</div>
+          <h3>Reflect</h3>
+          <p>Journal what stands out. Build a personal record of what Scripture means to you.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step-num">3</div>
+          <h3>Go Deeper</h3>
+          <p>Ask the Bible Guide anything. Explore Seek questions. Let curiosity lead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="fade-in" style="text-align: center;">
+      <span class="section-label">What People Are Saying</span>
+      <h2 class="section-title" style="max-width: 500px; margin: 0 auto 48px;">Real readers,<br>real conversations.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <span class="testimonial-quote">&ldquo;</span>
+        <p class="testimonial-text">What app is this? Love the perspective.</p>
+        <div class="testimonial-author">David O.</div>
+        <div class="testimonial-role">Beta Tester</div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <span class="testimonial-quote">&ldquo;</span>
+        <p class="testimonial-text">It's really nice. You ask a question and get different perspective on it.</p>
+        <div class="testimonial-author">Chris A.</div>
+        <div class="testimonial-role">Beta Tester</div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <span class="testimonial-quote">&ldquo;</span>
+        <p class="testimonial-text">The Bible Guide doesn't just give me generic answers. It actually engages with hard questions. That's what I've been looking for.</p>
+        <div class="testimonial-author">Michelle T.</div>
+        <div class="testimonial-role">Beta Tester</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DVine Pro -->
+  <section class="pro-section">
+    <div class="pro-inner">
+      <div class="fade-in" style="text-align: center;">
+        <span class="section-label">DVine Pro</span>
+        <h2 class="section-title" style="max-width: 500px; margin: 0 auto 16px;">Go further.</h2>
+        <p class="section-sub" style="margin: 0 auto 48px; text-align: center;">Unlock the full DVine experience.</p>
+      </div>
+      <div class="pro-grid fade-in">
+        <!-- Free Column -->
+        <div class="pro-col">
+          <h3>Free</h3>
+          <div class="pro-price"><strong>$0</strong> / forever</div>
+          <ul class="pro-list" id="free-list">
+            <li><span class="pro-check">&#10003;</span> Daily Bible reading</li>
+            <li><span class="pro-check">&#10003;</span> Streak tracking &amp; calendar</li>
+            <li><span class="pro-check">&#10003;</span> 7 Bible Guide messages / day</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Reflections journal</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> 3 Seek questions / day</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Scripture perspective only</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Listen to passages read aloud</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> 9 reading plans</li>
+            <li class="collapsed"><span class="pro-x">&#10005;</span> All perspectives on every question</li>
+            <li class="collapsed"><span class="pro-x">&#10005;</span> More Bible Guide usage</li>
+            <li class="collapsed"><span class="pro-x">&#10005;</span> More Seek questions</li>
+            <li class="collapsed"><span class="pro-x">&#10005;</span> Detailed explanations &amp; related verses</li>
+            <li class="collapsed"><span class="pro-x">&#10005;</span> All reading plans &amp; study groups</li>
+          </ul>
+          <button class="pro-toggle" onclick="toggleFeatures('free-list', this)" aria-expanded="false">See all features &#x25BC;</button>
+        </div>
+        <!-- Pro Column -->
+        <div class="pro-col pro-col-pro">
+          <div class="pro-badge">Most Popular</div>
+          <h3>Pro</h3>
+          <div class="pro-price"><span style="text-decoration: line-through; color: var(--white-30); font-size: 20px; font-weight: 700;">$14.99</span> <strong>$9.99</strong> / month</div>
+          <ul class="pro-list" id="pro-list">
+            <li><span class="pro-check">&#10003;</span> More Bible Guide usage</li>
+            <li><span class="pro-check">&#10003;</span> All perspectives on every question</li>
+            <li><span class="pro-check">&#10003;</span> More Seek questions</li>
+            <li><span class="pro-check">&#10003;</span> 7-day free trial</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Daily Bible reading</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Streak tracking &amp; calendar</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Reflections journal</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Listen to passages read aloud</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> All reading plans &amp; study groups</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Detailed explanations &amp; related verses</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Daily reflection questions</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Unlimited audio</li>
+          </ul>
+          <button class="pro-toggle" onclick="toggleFeatures('pro-list', this)" aria-expanded="false">See all features &#x25BC;</button>
+          <div style="margin-top: 16px; font-size: 12px; color: var(--white-50);">or <span style="text-decoration: line-through;">$99.99</span> $59.99/year &middot; first 100 users</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Waitlist -->
+  <section class="final-cta" id="join">
+    <div class="fade-in">
+      <h2>Your faith journey starts here.</h2>
+      <p>Join the waitlist and be the first to know when DVine launches.</p>
+      <form id="waitlistForm" onsubmit="return submitWaitlist(event)" style="display: flex; flex-direction: column; gap: 10px; max-width: 480px; margin: 0 auto;">
+        <input type="text" id="waitlistName" placeholder="Your first name" required aria-label="First name" style="width: 100%; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--glass-border); background: var(--glass-bg); color: var(--white); font-family: inherit; font-size: 15px; outline: none; box-sizing: border-box;">
+        <input type="email" id="waitlistEmail" placeholder="Your email" required aria-label="Email address" style="width: 100%; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--glass-border); background: var(--glass-bg); color: var(--white); font-family: inherit; font-size: 15px; outline: none; box-sizing: border-box;">
+        <button type="submit" id="waitlistBtn" class="hero-cta" style="padding: 14px 28px; font-size: 15px; border: none; cursor: pointer; white-space: nowrap;">Join</button>
+      </form>
+      <div id="waitlistSuccess" style="display: none; margin-top: 16px; color: #22c55e; font-weight: 600; font-size: 15px;">You're on the list! We'll be in touch.</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="/support">Support</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Jaiye Labs. All rights reserved.</p>
+  </footer>
+
+  <!-- Chat Widget -->
+  <button class="chat-fab" id="chatFab" onclick="openChat()">
+    &#x1F4AC; Ask DVine
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <img src="/icon.png" alt="DVine">
+        <div>
+          <h4>Bible Guide</h4>
+          <div class="chat-header-sub">Ask anything about Scripture</div>
+        </div>
+      </div>
+      <button class="chat-close" onclick="closeChat()" aria-label="Close chat">&times;</button>
+    </div>
+    <div class="chat-mode-toggle">
+      <button class="chat-mode-btn active" id="modeBible" onclick="switchMode('bible')">&#x1F4D6; Bible Guide</button>
+      <button class="chat-mode-btn" id="modeSeek" onclick="switchMode('seek')">&#x1F9ED; Wisdom Guide</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg chat-msg-ai">Hi! I'm the DVine Bible Guide. Ask me anything about Scripture.</div>
+    </div>
+    <div class="chat-input-row" id="chatInputRow">
+      <input class="chat-input" id="chatInput" type="text" placeholder="Ask anything about the Bible..." maxlength="500" autocomplete="off">
+      <button class="chat-send" id="chatSend" onclick="sendMessage()">&#x27A4;</button>
+    </div>
+  </div>
+
+  <!-- Supabase (waitlist + auth + AI chat) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+    var sb = window.supabase.createClient(
+      'https://qrfdagcabpqmgmysmpvi.supabase.co',
+      'sb_publishable_KUKvCUe8uOAa_MYdTr54hg_tz5RuwJc'
+    );
+
+    let accessToken = null;
+    // Persist message counts in localStorage to survive page refresh
+    let messageCount;
+    try {
+      const stored = JSON.parse(localStorage.getItem('dvine_chat_usage') || '{}');
+      const storedDate = stored._date || '';
+      const today = new Date().toISOString().slice(0, 10);
+      // Reset daily
+      messageCount = storedDate === today ? { bible: stored.bible || 0, seek: stored.seek || 0 } : { bible: 0, seek: 0 };
+      localStorage.setItem('dvine_chat_usage', JSON.stringify({ ...messageCount, _date: today }));
+    } catch { messageCount = { bible: 0, seek: 0 }; }
+    function persistUsage() {
+      try {
+        const today = new Date().toISOString().slice(0, 10);
+        localStorage.setItem('dvine_chat_usage', JSON.stringify({ ...messageCount, _date: today }));
+      } catch {}
+    }
+    let conversationHistory = { bible: [], seek: [] };
+    let currentMode = 'bible';
+    let sending = false;
+    let lastSendTime = 0;
+    const SEND_COOLDOWN_MS = 3000; // 3 second cooldown between messages
+    const MODE_LIMITS = { bible: 2, seek: 2 };
+    const MODE_LABELS = {
+      bible: { name: 'Bible Guide', greeting: "Hi! I'm the DVine Bible Guide. Ask me anything about Scripture." },
+      seek: { name: 'Wisdom Guide', greeting: "Hi! I'm the DVine Wisdom Guide. Ask me any big life question — I'll explore it from multiple perspectives." },
+    };
+
+    // Sign in anonymously on load (Supabase)
+    (async function() {
+      var { data } = await sb.auth.getSession();
+      if (data.session) {
+        accessToken = data.session.access_token;
+      } else {
+        try {
+          var { data: anonData } = await sb.auth.signInAnonymously();
+          if (anonData.session) accessToken = anonData.session.access_token;
+        } catch (e) {
+          console.warn('Anonymous auth failed:', e);
+          setTimeout(async function() {
+            try {
+              var { data: retryData } = await sb.auth.signInAnonymously();
+              if (retryData.session) accessToken = retryData.session.access_token;
+            } catch (e2) { console.warn('Anonymous auth retry failed:', e2); }
+          }, 3000);
+        }
+      }
+      // Keep token fresh
+      sb.auth.onAuthStateChange(function(_event, session) {
+        accessToken = session ? session.access_token : null;
+      });
+    })();
+
+    // Expose functions to global scope for onclick handlers
+    window.switchMode = function(mode) {
+      if (mode === currentMode) return;
+      currentMode = mode;
+      document.getElementById('modeBible').classList.toggle('active', mode === 'bible');
+      document.getElementById('modeSeek').classList.toggle('active', mode === 'seek');
+      // Update header
+      document.querySelector('.chat-header h4').textContent = MODE_LABELS[mode].name;
+      document.querySelector('.chat-header-sub').textContent = mode === 'bible' ? 'Ask anything about Scripture' : 'Explore life\'s biggest questions';
+      // Clear messages and show mode greeting
+      const container = document.getElementById('chatMessages');
+      container.innerHTML = '';
+      addMessage(MODE_LABELS[mode].greeting, 'ai');
+      // Show/hide input based on whether this mode is exhausted
+      const inputRow = document.getElementById('chatInputRow');
+      if (messageCount[mode] >= MODE_LIMITS[mode]) {
+        inputRow.style.display = 'none';
+        addMessage("You've used your free " + MODE_LABELS[mode].name + " questions. Join the waitlist to get DVine when it launches.", 'system');
+        showLimitCTA();
+      } else {
+        inputRow.style.display = 'flex';
+      }
+    };
+
+    window.openChat = function() {
+      document.getElementById('chatPanel').classList.add('open');
+      document.getElementById('chatFab').style.display = 'none';
+      document.getElementById('chatInput').focus();
+    };
+
+    window.closeChat = function() {
+      document.getElementById('chatPanel').classList.remove('open');
+      document.getElementById('chatFab').style.display = 'flex';
+    };
+
+    window.sendMessage = async function() {
+      if (sending) return;
+      // Debounce: 3 second cooldown between messages
+      const now = Date.now();
+      if (now - lastSendTime < SEND_COOLDOWN_MS) return;
+      lastSendTime = now;
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text || text.length > 500) return;
+      const mode = currentMode;
+      if (messageCount[mode] >= MODE_LIMITS[mode]) return;
+      if (!accessToken) {
+        addMessage('Could not connect to chat. Please refresh the page and try again.', 'system');
+        return;
+      }
+
+      sending = true;
+      input.value = '';
+      document.getElementById('chatSend').disabled = true;
+
+      addMessage(text, 'user');
+      const typingEl = showTyping();
+
+      try {
+        const { data: fnData, error: fnError } = await sb.functions.invoke('ai-chat', {
+          body: {
+            mode: mode,
+            userMessage: text,
+            conversationHistory: conversationHistory[mode],
+          },
+        });
+
+        removeTyping(typingEl);
+
+        if (fnError) {
+          if (fnError.context && fnError.context.status === 429) {
+            addMessage("You've used your free " + MODE_LABELS[mode].name + " questions. Join the waitlist to get DVine when it launches.", 'system');
+            showLimitCTA();
+            return;
+          }
+          throw fnError;
+        }
+
+        const aiText = fnData.response || fnData.content || 'Sorry, something went wrong. Try again.';
+
+        addMessage(aiText, 'ai');
+        conversationHistory[mode].push({ type: 'user', message: text });
+        conversationHistory[mode].push({ type: 'ai', message: aiText });
+        messageCount[mode]++;
+        persistUsage();
+
+        if (messageCount[mode] >= MODE_LIMITS[mode]) {
+          setTimeout(() => {
+            addMessage("That's your free " + MODE_LABELS[mode].name + " questions! Join the waitlist to get the full experience.", 'system');
+            showLimitCTA();
+          }, 500);
+        }
+      } catch (e) {
+        removeTyping(typingEl);
+        addMessage('Something went wrong. Please try again.', 'system');
+      } finally {
+        sending = false;
+        document.getElementById('chatSend').disabled = false;
+      }
+    };
+
+    function formatMarkdown(text) {
+      // Escape HTML first to prevent XSS
+      const escaped = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      return escaped
+        // Bold: **text** → <strong>text</strong>
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        // Italic: *text* → <em>text</em>
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        // Double newlines → paragraph break
+        .replace(/\n\n/g, '<br><br>')
+        // Single newlines → line break
+        .replace(/\n/g, '<br>');
+    }
+
+    function addMessage(text, type) {
+      const container = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = 'chat-msg chat-msg-' + type;
+      if (type === 'ai') {
+        div.innerHTML = formatMarkdown(text);
+      } else {
+        div.textContent = text;
+      }
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function showTyping() {
+      const container = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = 'chat-typing';
+      div.innerHTML = '<span></span><span></span><span></span>';
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+      return div;
+    }
+
+    function removeTyping(el) {
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    }
+
+    function showLimitCTA() {
+      const container = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = 'chat-msg chat-msg-system';
+      div.style.maxWidth = '100%';
+      div.innerHTML = '<div style="margin-top:4px;font-size:13px;color:rgba(255,255,255,0.6);">Join the waitlist to get DVine when it launches.</div>'
+        + '<form onsubmit="return submitChatWaitlist(event)" style="display:flex;gap:6px;margin-top:10px;">'
+        + '<input type="email" id="chatWaitlistEmail" placeholder="your@email.com" required style="flex:1;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-family:inherit;font-size:13px;outline:none;">'
+        + '<button type="submit" class="chat-limit-cta" style="margin:0;padding:8px 14px;">Join</button>'
+        + '</form>'
+        + '<div id="chatWaitlistSuccess" style="display:none;margin-top:8px;color:#22c55e;font-size:12px;font-weight:600;">You\'re on the list!</div>';
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+      // Hide input row
+      document.getElementById('chatInputRow').style.display = 'none';
+    }
+
+    // Email validation — local part 2+ chars, domain label 1+ chars, TLD 2+ chars, total domain 4+ chars
+    function isValidEmail(email) {
+      if (!/^[^\s@]{2,}@([^\s@]+)\.[a-zA-Z]{2,}$/.test(email)) return false;
+      var domain = email.split('@')[1];
+      return domain.length >= 4;
+    }
+
+    function isValidName(name) {
+      return name.length >= 2 && /^[a-zA-Z\s'\-]+$/.test(name);
+    }
+
+    function showFieldError(inputEl, msg) {
+      inputEl.style.borderColor = '#ef4444';
+      let errEl = inputEl.nextElementSibling;
+      if (!errEl || !errEl.classList.contains('field-error')) {
+        errEl = document.createElement('div');
+        errEl.classList.add('field-error');
+        errEl.style.cssText = 'color:#ef4444;font-size:12px;margin-top:4px;width:100%;';
+        inputEl.insertAdjacentElement('afterend', errEl);
+      }
+      errEl.textContent = msg;
+    }
+
+    function clearFieldError(inputEl) {
+      inputEl.style.borderColor = '';
+      const errEl = inputEl.nextElementSibling;
+      if (errEl && errEl.classList.contains('field-error')) errEl.remove();
+    }
+
+    // Hero waitlist form
+    // Unified waitlist submission
+    async function submitWaitlistForm(opts) {
+      const { nameId, emailId, formId, successId, source } = opts;
+      const emailEl = document.getElementById(emailId);
+      const nameEl = nameId ? document.getElementById(nameId) : null;
+      const email = emailEl.value.trim();
+      const name = nameEl ? nameEl.value.trim() : null;
+      clearFieldError(emailEl);
+      if (nameEl) clearFieldError(nameEl);
+      let valid = true;
+      if (nameEl && !isValidName(name)) { showFieldError(nameEl, 'Enter your first name (letters only)'); valid = false; }
+      if (!isValidEmail(email)) { showFieldError(emailEl, 'Enter a valid email address'); valid = false; }
+      if (!valid) return false;
+      try {
+        const row = { email: email, source: source };
+        if (name) row.name = name;
+        const { error } = await sb.from('waitlist').insert(row);
+        if (error) throw error;
+        document.getElementById(formId).style.display = 'none';
+        document.getElementById(successId).style.display = 'block';
+      } catch (err) {
+        console.warn('Waitlist error:', err);
+        if (err && err.code === '23505') {
+          // Duplicate email — still show success
+          document.getElementById(formId).style.display = 'none';
+          document.getElementById(successId).style.display = 'block';
+        } else if (nameEl) {
+          alert('Something went wrong. Please try again.');
+        }
+      }
+      return false;
+    }
+
+    window.submitHeroWaitlist = function(e) { e.preventDefault(); return submitWaitlistForm({ nameId: 'heroWaitlistName', emailId: 'heroWaitlistEmail', formId: 'heroWaitlistForm', successId: 'heroWaitlistSuccess', source: 'hero' }); };
+    window.submitWaitlist = function(e) { e.preventDefault(); return submitWaitlistForm({ nameId: 'waitlistName', emailId: 'waitlistEmail', formId: 'waitlistForm', successId: 'waitlistSuccess', source: 'homepage' }); };
+    window.submitChatWaitlist = function(e) { e.preventDefault(); var el = document.getElementById('chatWaitlistEmail'); return submitWaitlistForm({ emailId: 'chatWaitlistEmail', formId: el.parentElement.id || (el.parentElement.id = '_chatForm'), successId: 'chatWaitlistSuccess', source: 'chat_widget' }); };
+
+    // Enter key sends message
+    document.getElementById('chatInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        window.sendMessage();
+      }
+    });
+  </script>
+
+  <script>
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+    // Toggle feature lists
+    function toggleFeatures(listId, btn) {
+      const list = document.getElementById(listId);
+      const items = list.querySelectorAll('.collapsed');
+      const isExpanded = btn.dataset.expanded === 'true';
+      items.forEach((li) => {
+        li.style.display = isExpanded ? 'none' : 'flex';
+      });
+      btn.dataset.expanded = isExpanded ? 'false' : 'true';
+      btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+      btn.innerHTML = isExpanded ? 'See all features &#x25BC;' : 'Show less &#x25B2;';
+    }
+  </script>
+
+</body>
+</html>

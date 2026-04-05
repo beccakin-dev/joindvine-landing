@@ -1,0 +1,31 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "3WG2FHAV4B.com.jaiyelabs.dvine",
+        "paths": [
+          "/reading/*",
+          "/seek/*",
+          "/invite/*",
+          "/share/*"
+        ]
+      },
+      {
+        "appID": "3WG2FHAV4B.com.jaiyelabs.dvine.test",
+        "paths": [
+          "/reading/*",
+          "/seek/*",
+          "/invite/*",
+          "/share/*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "3WG2FHAV4B.com.jaiyelabs.dvine",
+      "3WG2FHAV4B.com.jaiyelabs.dvine.test"
+    ]
+  }
+}
