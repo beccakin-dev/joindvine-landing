@@ -155,6 +155,55 @@
       font-weight: 500; position: relative;
     }
 
+    /* ---- SEEK ARTIFACT ---- */
+    .seek-card {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: 24px; padding: 32px 28px;
+      max-width: 600px; width: 100%;
+      margin: 8px auto 36px;
+      position: relative;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      text-align: left;
+    }
+    .seek-card-label {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2px;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .seek-question {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700; line-height: 1.3;
+      margin-bottom: 22px;
+    }
+    .seek-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .seek-tab {
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--white-10);
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 12px; font-weight: 600;
+      color: var(--white-70);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .seek-tab.active {
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+    }
+    .seek-tab[data-perspective="scripture"].active { border-color: #3b82f6; color: #93c5fd; }
+    .seek-tab[data-perspective="philosophy"].active { border-color: #a855f7; color: #d8b4fe; }
+    .seek-tab[data-perspective="science"].active { border-color: #10b981; color: #6ee7b7; }
+    .seek-tab[data-perspective="secular"].active { border-color: #f59e0b; color: #fcd34d; }
+    .seek-content {
+      font-size: 15px; color: var(--white-70);
+      line-height: 1.7;
+      min-height: 150px;
+    }
+
     /* ---- SOCIAL PROOF ---- */
     .proof {
       padding: 48px 24px;
@@ -459,6 +508,10 @@
       .section { padding: 72px 20px; }
       .hero { padding: 100px 20px 60px; }
       .chat-panel { width: calc(100% - 32px); left: 16px; right: 16px; max-height: 70vh; }
+      .seek-card { padding: 24px 20px; }
+      .seek-tabs { gap: 6px; }
+      .seek-tab { padding: 7px 12px; font-size: 11px; }
+      .seek-content { font-size: 14px; min-height: 200px; }
     }
     @media (min-width: 769px) and (max-width: 1024px) {
       .features-grid { grid-template-columns: 1fr 1fr; }
@@ -479,13 +532,23 @@
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
     <div class="hero-orb hero-orb-3"></div>
-    <img src="/icon.png" alt="DVine app icon" style="width: 80px; height: 80px; border-radius: 20px; margin-bottom: 24px; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+    <img src="/icon.png" alt="DVine app icon" style="width: 72px; height: 72px; border-radius: 18px; margin-bottom: 20px; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      Now in Beta
+      Launching soon
     </div>
-    <h1>A Bible app that helps you <em>think</em>, not just read.</h1>
-    <p class="hero-sub">Daily readings. Deeper insights. Multiple perspectives on life's biggest questions.</p>
+    <h1>The questions you carry. <em>Every perspective</em> that matters.</h1>
+    <div class="seek-card" role="region" aria-label="Sample Seek question">
+      <div class="seek-card-label">A real question from DVine</div>
+      <div class="seek-question">Why do people suffer?</div>
+      <div class="seek-tabs" role="tablist">
+        <button class="seek-tab active" data-perspective="scripture" onclick="switchSeekTab('scripture')" type="button">Scripture</button>
+        <button class="seek-tab" data-perspective="philosophy" onclick="switchSeekTab('philosophy')" type="button">Philosophy</button>
+        <button class="seek-tab" data-perspective="science" onclick="switchSeekTab('science')" type="button">Science</button>
+        <button class="seek-tab" data-perspective="secular" onclick="switchSeekTab('secular')" type="button">Secular Thought</button>
+      </div>
+      <div class="seek-content" id="seekContent">Job loses everything and screams at God for thirty chapters. God never explains why. Instead of an answer, Job gets a question: &ldquo;Where were you when I laid the earth&rsquo;s foundation?&rdquo; The promise isn&rsquo;t that suffering will make sense. It&rsquo;s that you won&rsquo;t go through it alone.</div>
+    </div>
     <form id="heroWaitlistForm" onsubmit="return submitHeroWaitlist(event)" style="display: flex; flex-direction: column; gap: 10px; max-width: 480px; width: 100%; position: relative;">
       <input type="text" id="heroWaitlistName" placeholder="Your first name" required aria-label="First name" style="width: 100%; padding: 16px 20px; border-radius: 14px; border: 1px solid var(--glass-border); background: var(--glass-bg); color: var(--white); font-family: inherit; font-size: 15px; outline: none; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-sizing: border-box;">
       <input type="email" id="heroWaitlistEmail" placeholder="Your email" required aria-label="Email address" style="width: 100%; padding: 16px 20px; border-radius: 14px; border: 1px solid var(--glass-border); background: var(--glass-bg); color: var(--white); font-family: inherit; font-size: 15px; outline: none; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-sizing: border-box;">
@@ -499,13 +562,13 @@
   <section class="proof">
     <div class="proof-inner">
       <div class="proof-stat fade-in">
-        <div class="proof-label">Now in Beta</div>
+        <div class="proof-label">Launching soon</div>
       </div>
       <div class="proof-stat fade-in">
-        <div class="proof-label">Built for thinkers</div>
+        <div class="proof-label">Built for honest questions</div>
       </div>
       <div class="proof-stat fade-in">
-        <div class="proof-label">Free on iOS</div>
+        <div class="proof-label">Free on iOS at launch</div>
       </div>
     </div>
   </section>
@@ -574,19 +637,7 @@
       <span class="section-label">What People Are Saying</span>
       <h2 class="section-title" style="max-width: 500px; margin: 0 auto 48px;">Real readers,<br>real conversations.</h2>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card fade-in">
-        <span class="testimonial-quote">&ldquo;</span>
-        <p class="testimonial-text">What app is this? Love the perspective.</p>
-        <div class="testimonial-author">David O.</div>
-        <div class="testimonial-role">Beta Tester</div>
-      </div>
-      <div class="testimonial-card fade-in">
-        <span class="testimonial-quote">&ldquo;</span>
-        <p class="testimonial-text">It's really nice. You ask a question and get different perspective on it.</p>
-        <div class="testimonial-author">Chris A.</div>
-        <div class="testimonial-role">Beta Tester</div>
-      </div>
+    <div class="testimonials-grid" style="grid-template-columns: 1fr; max-width: 640px; margin: 0 auto;">
       <div class="testimonial-card fade-in">
         <span class="testimonial-quote">&ldquo;</span>
         <p class="testimonial-text">The Bible Guide doesn't just give me generic answers. It actually engages with hard questions. That's what I've been looking for.</p>
@@ -643,7 +694,7 @@
             <li class="collapsed"><span class="pro-check">&#10003;</span> All reading plans &amp; study groups</li>
             <li class="collapsed"><span class="pro-check">&#10003;</span> Detailed explanations &amp; related verses</li>
             <li class="collapsed"><span class="pro-check">&#10003;</span> Daily reflection questions</li>
-            <li class="collapsed"><span class="pro-check">&#10003;</span> Unlimited audio</li>
+            <li class="collapsed"><span class="pro-check">&#10003;</span> Audio for every passage</li>
           </ul>
           <button class="pro-toggle" onclick="toggleFeatures('pro-list', this)" aria-expanded="false">See all features &#x25BC;</button>
           <div style="margin-top: 16px; font-size: 12px; color: var(--white-50);">or <span style="text-decoration: line-through;">$99.99</span> $59.99/year &middot; first 100 users</div>
@@ -668,6 +719,7 @@
 
   <!-- Footer -->
   <footer class="footer">
+    <p style="font-size: 13px; color: var(--white-50); margin-bottom: 20px; font-style: italic;">Made for the questions you carry.</p>
     <div class="footer-links">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms of Service</a>
@@ -1025,6 +1077,20 @@
       btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
       btn.innerHTML = isExpanded ? 'See all features &#x25BC;' : 'Show less &#x25B2;';
     }
+
+    // Seek artifact tab switcher
+    const SEEK_ANSWERS = {
+      scripture: 'Job loses everything and screams at God for thirty chapters. God never explains why. Instead of an answer, Job gets a question: “Where were you when I laid the earth’s foundation?” The promise isn’t that suffering will make sense. It’s that you won’t go through it alone.',
+      philosophy: 'Viktor Frankl survived Auschwitz and came back with one observation: the prisoners who found meaning in their suffering were the ones who survived. Not an answer to why suffering happens. A way through it.',
+      science: 'Pain is your body’s alarm system. People born without pain receptors rarely survive childhood. But the brain processes heartbreak and physical injury in overlapping regions. Rejection literally hurts.',
+      secular: 'No cosmic plan behind suffering means every act of compassion, every medical breakthrough, every hand reaching out matters more, not less. Nobody else is coming to fix it.',
+    };
+    window.switchSeekTab = function(perspective) {
+      document.querySelectorAll('.seek-tab').forEach((t) => {
+        t.classList.toggle('active', t.dataset.perspective === perspective);
+      });
+      document.getElementById('seekContent').textContent = SEEK_ANSWERS[perspective];
+    };
   </script>
 
 </body>
