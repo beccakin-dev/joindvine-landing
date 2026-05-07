@@ -271,10 +271,16 @@ body {
 .hero-icon {
   width: 56px; height: 56px;
   border-radius: 14px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  display: grid;
+  place-items: center;
+  color: #1e1b4b;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 28px;
   margin-bottom: 22px;
   box-shadow: 0 8px 28px rgba(251,191,36,0.3);
-  object-fit: cover;
-  display: block;
 }
 
 .h1 {
@@ -1450,7 +1456,7 @@ body {
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <img class="hero-icon" src="/icon.png" alt="DVine app icon" />
+      <div class="hero-icon">D</div>
       <span class="badge"><span class="dot"></span>Launching soon</span>
       <h1 class="h1" id="heroH1" aria-label="The questions you carry. Every perspective that matters."></h1>
       <p class="hero-sub">A Bible companion for people who want to think, not just read. Daily readings, honest questions and the perspectives that have shaped how we answer them.</p>
