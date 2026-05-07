@@ -1981,7 +1981,7 @@ const PERSPECTIVES = [
   { id: 'science',    name: 'Science',         color: 'var(--p-science)',    hex: '#10b981',
     answer: "Neuroscience tells us pain is a signal, not a failure of the system. Evolutionary biology says cooperation grew out of shared hardship. Suffering is woven into the way conscious creatures learn what matters." },
   { id: 'secular',    name: 'Secular thought', color: 'var(--p-secular)',    hex: '#f59e0b',
-    answer: "Frankl wrote that meaning is what survives the camp. Solnit writes that grief and care belong to the same gesture. The secular answer isn’t “why” but “with whom” — and what we choose to build out of it." },
+    answer: "Frankl wrote that meaning is what survives the camp. The secular answer isn’t “why” but “with whom” — and what we choose to build out of it." },
 ];
 
 const QUESTIONS = [
@@ -2028,19 +2028,18 @@ const FEATURES = [
 ];
 
 const PULL_QUOTES = [
-  { text: "Finally, an app that takes my questions seriously.", who: "Daniel R." },
-  { text: "Reading the Bible without feeling preached at.", who: "Aisha N." },
-  { text: "I started for the streaks. I stayed for the Seek questions.", who: "Marco T." },
-  { text: "It treats doubt like part of faith, not the enemy of it.", who: "Hannah O." },
-  { text: "The four perspectives changed how I read everything.", who: "Sam K." },
-  { text: "First spiritual app I've kept past week two.", who: "Priya V." },
+  "Nobody has a satisfying explanation. But every tradition says the same thing: show up.",
+  "Taking death seriously is what makes you take life seriously.",
+  "A life without purpose is a life half-lived.",
+  "Refuse the easy answer. Stay with the hardness of the question.",
+  "Suffering is the curriculum, not the obstacle.",
+  "Truth is worth the effort it takes to reach.",
 ];
 
 const FOOT_TAGS = [
   "Made for the questions you carry.",
   "Built for honest questions.",
   "For the days you want Scripture but don’t know where to start.",
-  "Where the question matters as much as the answer.",
 ];
 
 function buildHero() {
@@ -2144,7 +2143,7 @@ function guideArtifact() {
       <div class="bubble you">If God knew Judas would betray Jesus, was Judas free?</div>
       <div class="bubble guide">
         Scripture holds both at once: foreknowledge in John 13:18-19, and Judas making a choice in Matthew 26:14-16. The text doesn't resolve the tension — it sits inside it. Augustine read the same passages and landed on grace. Open theists land somewhere else.
-        <cite>Matthew 26 · John 13 · 1.4k discussions</cite>
+        <cite>Matthew 26 · John 13</cite>
       </div>
       <div class="typing"><span></span><span></span><span></span></div>
     </div>`;
@@ -2302,10 +2301,8 @@ function setupSteps() {
 function buildMarquee() {
   const track = document.getElementById('marqueeTrack');
   const items = [...PULL_QUOTES, ...PULL_QUOTES];
-  track.innerHTML = items.map(q => `
-    <span class="marquee-item">
-      <em>"${q.text}"</em><span class="dotsep"></span><span>${q.who}</span>
-    </span>
+  track.innerHTML = items.map(t => `
+    <span class="marquee-item"><em>${t}</em></span>
   `).join('');
 }
 
