@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why do people suffer? — DVine</title>
+  <meta name="description" content="Suffering is the one human experience every tradition takes seriously. Here is how Scripture, philosophy, science, and secular thought have each answered.">
+  <meta property="og:title" content="Why do people suffer?">
+  <meta property="og:description" content="Job, Viktor Frankl, neuroscience, Peter Singer — four serious answers to the question nobody can avoid.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://joindvine.com/questions/suffering">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep: #1e1b4b;
+      --purple-mid: #312e81;
+      --purple-light: #4c1d95;
+      --gold: #fbbf24;
+      --gold-hover: #f59e0b;
+      --white: #ffffff;
+      --white-70: rgba(255,255,255,0.7);
+      --white-50: rgba(255,255,255,0.5);
+      --white-30: rgba(255,255,255,0.3);
+      --white-10: rgba(255,255,255,0.1);
+      --glass-bg: rgba(255,255,255,0.06);
+      --glass-border: rgba(255,255,255,0.1);
+      --scripture: #93c5fd;
+      --philosophy: #c4b5fd;
+      --science: #86efac;
+      --secular: #fcd34d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--purple-deep);
+      color: var(--white);
+      font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      line-height: 1.6;
+      font-size: 19px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .topbar {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white-50);
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--white-10);
+      background: rgba(30,27,75,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .topbar a {
+      color: var(--white-70);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .topbar a:hover { color: var(--gold); }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .hero {
+      padding: 96px 0 64px;
+      text-align: center;
+      background: linear-gradient(160deg, var(--purple-deep) 0%, var(--purple-mid) 48%, var(--purple-light) 100%);
+    }
+
+    .kicker {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(48px, 7vw, 84px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(20px, 2.4vw, 26px);
+      color: var(--white-70);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .agreement {
+      padding: 56px 0;
+      border-top: 1px solid var(--white-10);
+      border-bottom: 1px solid var(--white-10);
+      margin: 48px 0;
+    }
+
+    .agreement p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.5vw, 28px);
+      line-height: 1.5;
+      color: var(--white);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .perspectives {
+      padding: 24px 0 80px;
+    }
+
+    .perspective {
+      padding: 40px;
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      border-radius: 20px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .perspective:last-of-type {
+      border-bottom: none;
+    }
+
+    .tradition {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .sigil {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+
+    .voice {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--white-70);
+      margin-bottom: 28px;
+    }
+
+    .perspective p.body {
+      font-size: clamp(19px, 1.7vw, 22px);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .perspective[data-tradition="Scripture"]  .tradition,
+    .perspective[data-tradition="Scripture"]  .sigil { color: var(--scripture); }
+    .perspective[data-tradition="Philosophy"] .tradition,
+    .perspective[data-tradition="Philosophy"] .sigil { color: var(--philosophy); }
+    .perspective[data-tradition="Science"]    .tradition,
+    .perspective[data-tradition="Science"]    .sigil { color: var(--science); }
+    .perspective[data-tradition="Secular Thought"] .tradition,
+    .perspective[data-tradition="Secular Thought"] .sigil { color: var(--secular); }
+
+    .sources {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--white-50);
+      padding-top: 16px;
+      border-top: 1px solid var(--white-10);
+    }
+
+    .sources span { display: block; margin-bottom: 4px; }
+
+    .thread {
+      padding: 80px 0 96px;
+      text-align: center;
+      border-top: 1px solid var(--white-10);
+    }
+
+    .thread .kicker { margin-bottom: 24px; }
+
+    .thread p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.35;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .outro {
+      background: linear-gradient(180deg, rgba(76,29,149,0.3), rgba(30,27,75,0.95));
+      color: var(--white);
+      padding: 80px 0 96px;
+      text-align: center;
+    }
+
+    .outro .container { max-width: 640px; }
+
+    .outro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(34px, 4.5vw, 48px);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .outro p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--white-70);
+      margin-bottom: 36px;
+    }
+
+    .cta {
+      display: inline-block;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--purple-deep);
+      background: var(--gold);
+      padding: 16px 32px;
+      border-radius: 9999px;
+      text-decoration: none;
+    }
+
+    .cta:hover { background: var(--gold-hover); }
+
+    .foot {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--white-50);
+      text-align: center;
+      padding: 32px;
+      border-top: 1px solid var(--white-10);
+      background: var(--purple-deep);
+    }
+
+    @media (max-width: 600px) {
+      .topbar { padding: 18px 20px; font-size: 11px; }
+      .hero { padding: 64px 0 40px; }
+      .agreement { padding: 40px 0; margin: 32px 0; }
+      .perspective { padding: 28px; }
+      .outro { padding: 64px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="/">DVine</a>
+  <a href="/questions/">More questions</a>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="kicker">A question from DVine</div>
+    <h1>Why do people suffer?</h1>
+    <p class="subtitle">The question nobody can avoid.</p>
+  </div>
+</section>
+
+<section class="agreement">
+  <div class="container">
+    <p>A child in a hospital bed. A whole town flattened by a storm. Your own worst year. Suffering is the one human experience that every tradition takes seriously, because no honest person can look away from it.</p>
+  </div>
+</section>
+
+<section class="perspectives">
+  <div class="container">
+
+    <article class="perspective" data-tradition="Scripture">
+      <div class="sigil">☩</div>
+      <div class="tradition">Scripture</div>
+      <p class="voice">A still small voice.</p>
+      <p class="body">Job loses everything and screams at God for thirty chapters. God never explains why. Instead of an answer, Job gets a question: "Where were you when I laid the earth's foundation?" That's not a rebuke. The Bible refuses to give a tidy explanation for suffering. What it offers instead is a God who enters into it — Jesus weeping at a friend's grave, bleeding on a cross. The promise isn't that suffering will make sense. It's that you won't go through it alone.</p>
+      <div class="sources">
+        <span>Job 38–42</span>
+        <span>John 11:35</span>
+      </div>
+    </article>
+
+    <article class="perspective" data-tradition="Philosophy">
+      <div class="sigil">✦</div>
+      <div class="tradition">Philosophy</div>
+      <p class="voice">Reasoned across centuries.</p>
+      <p class="body">Viktor Frankl survived Auschwitz and came back with one observation: the prisoners who found meaning in their suffering were the ones who survived. Not an answer to why suffering happens. A way through it. The Stoics took a different angle — suffering reveals what you can and can't control, and wisdom is learning the difference. Camus went further: if the universe doesn't care, the brave response is to keep living fully anyway. These aren't comfortable positions. They weren't meant to be.</p>
+      <div class="sources">
+        <span>Viktor Frankl, <em>Man's Search for Meaning</em></span>
+        <span>Albert Camus, <em>The Myth of Sisyphus</em></span>
+        <span>Epictetus, <em>Discourses</em></span>
+      </div>
+    </article>
+
+    <article class="perspective" data-tradition="Science">
+      <div class="sigil">◬</div>
+      <div class="tradition">Science</div>
+      <p class="voice">What evidence shows.</p>
+      <p class="body">Pain is your body's alarm system. People born without pain receptors rarely survive childhood. But neuroscience has found something unexpected: the brain processes heartbreak and physical injury in overlapping regions. Rejection literally hurts. And studies on post-traumatic growth show that many people who endure the worst come out stronger, more empathetic, more present. None of which makes suffering good. It makes it more complicated than we thought.</p>
+      <div class="sources">
+        <span>Naomi Eisenberger, Social Pain Research (2012)</span>
+        <span>Tedeschi &amp; Calhoun, Posttraumatic Growth (2004)</span>
+      </div>
+    </article>
+
+    <article class="perspective" data-tradition="Secular Thought">
+      <div class="sigil">◐</div>
+      <div class="tradition">Secular Thought</div>
+      <p class="voice">A view from the street.</p>
+      <p class="body">No cosmic plan behind suffering means every act of compassion, every medical breakthrough, every hand reaching out matters more, not less. Nobody else is coming to fix it. The secular response to suffering isn't an explanation. It's a commitment: reduce it wherever you can.</p>
+      <div class="sources">
+        <span>Peter Singer, <em>Practical Ethics</em></span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="thread">
+  <div class="container">
+    <div class="kicker">What they share</div>
+    <p>Nobody has a satisfying explanation. But every tradition says the same thing about what to do next: show up.</p>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="container">
+    <h2>DVine takes hard questions seriously.</h2>
+    <p>Read more hard questions in the app.</p>
+    <a href="/#join" class="cta">Get DVine</a>
+  </div>
+</section>
+
+<footer class="foot">
+  &copy; 2026 Jaiye Labs · <a href="/privacy/" style="color: inherit;">Privacy</a> · <a href="/terms/" style="color: inherit;">Terms</a>
+</footer>
+
+</body>
+</html>

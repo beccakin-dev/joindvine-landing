@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questions - DVine</title>
+  <meta name="description" content="Read DVine questions through Scripture, philosophy, science and secular thought.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep: #1e1b4b;
+      --purple-mid: #312e81;
+      --purple-light: #4c1d95;
+      --gold: #fbbf24;
+      --white: #ffffff;
+      --white-70: rgba(255,255,255,0.7);
+      --white-50: rgba(255,255,255,0.5);
+      --white-10: rgba(255,255,255,0.1);
+      --glass-bg: rgba(255,255,255,0.06);
+      --glass-border: rgba(255,255,255,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(251,191,36,0.16), transparent 30%),
+        radial-gradient(circle at 82% 26%, rgba(139,92,246,0.2), transparent 34%),
+        linear-gradient(135deg, var(--purple-deep), var(--purple-mid) 52%, var(--purple-light));
+      color: var(--white);
+      font-family: 'Montserrat', system-ui, sans-serif;
+    }
+
+    .topbar {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white-50);
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--white-10);
+      background: rgba(30,27,75,0.58);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .topbar a {
+      color: var(--white-70);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .topbar a:hover { color: var(--gold); }
+
+    main {
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      padding: 76px 28px 96px;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+
+    .kicker {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      font-size: clamp(52px, 8vw, 86px);
+      line-height: 1;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.35;
+      color: var(--white-70);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .question {
+      min-height: 250px;
+      padding: 28px;
+      border: 1px solid var(--glass-border);
+      border-radius: 22px;
+      background: var(--glass-bg);
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .question:hover {
+      border-color: rgba(251,191,36,0.42);
+      background: rgba(255,255,255,0.09);
+    }
+
+    .question h2 {
+      font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.05;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .question p {
+      color: var(--white-70);
+      font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      font-size: 20px;
+      line-height: 1.35;
+      margin-bottom: 28px;
+    }
+
+    .question span {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .foot {
+      padding: 28px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--white-50);
+      border-top: 1px solid var(--white-10);
+      letter-spacing: 0.04em;
+    }
+
+    .foot a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .foot a:hover { color: var(--gold); }
+
+    @media (max-width: 760px) {
+      .topbar {
+        padding: 20px 28px;
+        font-size: 11px;
+      }
+
+      main {
+        padding: 56px 28px 76px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question {
+        min-height: 210px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="/">DVine</a>
+    <a href="/#join">Get DVine</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="kicker">DVine questions</div>
+      <h1>Questions worth sitting with.</h1>
+      <p>Start with one. DVine brings Scripture, philosophy, science and secular thought into the room.</p>
+    </section>
+
+    <section class="grid" aria-label="Question essays">
+      <a class="question" href="/questions/suffering/">
+        <div>
+          <h2>Why do people suffer?</h2>
+          <p>The question nobody can avoid.</p>
+        </div>
+        <span>Read the answer</span>
+      </a>
+      <a class="question" href="/questions/death/">
+        <div>
+          <h2>What happens when we die?</h2>
+          <p>The question every culture has tried to answer.</p>
+        </div>
+        <span>Read the answer</span>
+      </a>
+      <a class="question" href="/questions/meaning/">
+        <div>
+          <h2>What makes life meaningful?</h2>
+          <p>The question under nearly every other question.</p>
+        </div>
+        <span>Read the answer</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    &copy; 2026 Jaiye Labs · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/support/">Support</a>
+  </footer>
+</body>
+</html>

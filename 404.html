@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - DVine</title>
+  <meta name="description" content="This DVine page is missing. Head back home or read a question worth sitting with.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep: #1e1b4b;
+      --purple-mid: #312e81;
+      --purple-light: #4c1d95;
+      --gold: #fbbf24;
+      --gold-hover: #f59e0b;
+      --white: #ffffff;
+      --white-70: rgba(255,255,255,0.7);
+      --white-50: rgba(255,255,255,0.5);
+      --white-20: rgba(255,255,255,0.2);
+      --white-10: rgba(255,255,255,0.1);
+      --glass-bg: rgba(255,255,255,0.07);
+      --glass-border: rgba(255,255,255,0.14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 16% 24%, rgba(251,191,36,0.18), transparent 30%),
+        radial-gradient(circle at 84% 22%, rgba(124,58,237,0.22), transparent 34%),
+        linear-gradient(135deg, var(--purple-deep), var(--purple-mid) 52%, var(--purple-light));
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 32px;
+      color: var(--white-50);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      border-bottom: 1px solid var(--white-10);
+      background: rgba(30,27,75,0.58);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav a {
+      color: var(--white-70);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav a:hover { color: var(--gold); }
+
+    main {
+      flex: 1;
+      width: min(920px, 100%);
+      margin: 0 auto;
+      padding: 72px 28px 88px;
+      display: grid;
+      place-items: center;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      padding: clamp(34px, 7vw, 72px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      background: linear-gradient(150deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+      box-shadow: 0 32px 90px rgba(0,0,0,0.28);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card:before,
+    .card:after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .card:before {
+      width: 180px;
+      height: 180px;
+      left: -70px;
+      top: -70px;
+      background: rgba(251,191,36,0.18);
+      filter: blur(18px);
+    }
+
+    .card:after {
+      width: 220px;
+      height: 220px;
+      right: -90px;
+      bottom: -90px;
+      background: rgba(167,139,250,0.18);
+      filter: blur(20px);
+    }
+
+    .code {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(251,191,36,0.3);
+      border-radius: 999px;
+      padding: 8px 14px;
+      margin-bottom: 28px;
+      background: rgba(251,191,36,0.08);
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      font-size: clamp(54px, 10vw, 96px);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+
+    p {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      margin: 0 auto;
+      color: var(--white-70);
+      font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      font-size: clamp(21px, 3vw, 28px);
+      line-height: 1.45;
+    }
+
+    .actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .button.primary {
+      color: var(--purple-deep);
+      background: var(--gold);
+    }
+
+    .button.primary:hover { background: var(--gold-hover); }
+
+    .button.secondary {
+      color: var(--white);
+      border: 1px solid var(--white-20);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .button.secondary:hover {
+      border-color: rgba(251,191,36,0.45);
+      color: var(--gold);
+    }
+
+    .foot {
+      padding: 28px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--white-50);
+      border-top: 1px solid var(--white-10);
+      letter-spacing: 0.04em;
+    }
+
+    .foot a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .foot a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .nav {
+        padding: 20px 28px;
+        font-size: 11px;
+      }
+
+      main {
+        padding: 48px 28px 68px;
+      }
+
+      .card {
+        border-radius: 22px;
+      }
+
+      .actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a href="/">DVine</a>
+    <a href="/questions/">Questions</a>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="page-title">
+      <div class="code">Error 404</div>
+      <h1 id="page-title">This page wandered off.</h1>
+      <p>No hidden scroll here. The path may have moved, or the link may be asking a question this page cannot answer.</p>
+      <div class="actions">
+        <a class="button primary" href="/">Back to DVine</a>
+        <a class="button secondary" href="/questions/">Read a question</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    &copy; 2026 Jaiye Labs · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/support/">Support</a>
+  </footer>
+</body>
+</html>

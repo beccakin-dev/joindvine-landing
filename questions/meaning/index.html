@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Does life have a purpose — or do we make our own? — DVine</title>
+  <meta name="description" content="The question behind every other question. Here is how Scripture, philosophy, science, and secular thought have each answered.">
+  <meta property="og:title" content="Does life have a purpose — or do we make our own?">
+  <meta property="og:description" content="Ecclesiastes, Nietzsche, neuroscience, Sartre — four serious answers to the question behind every other question.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://joindvine.com/questions/meaning">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep: #1e1b4b;
+      --purple-mid: #312e81;
+      --purple-light: #4c1d95;
+      --gold: #fbbf24;
+      --gold-hover: #f59e0b;
+      --white: #ffffff;
+      --white-70: rgba(255,255,255,0.7);
+      --white-50: rgba(255,255,255,0.5);
+      --white-30: rgba(255,255,255,0.3);
+      --white-10: rgba(255,255,255,0.1);
+      --glass-bg: rgba(255,255,255,0.06);
+      --glass-border: rgba(255,255,255,0.1);
+      --scripture: #93c5fd;
+      --philosophy: #c4b5fd;
+      --science: #86efac;
+      --secular: #fcd34d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--purple-deep);
+      color: var(--white);
+      font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      line-height: 1.6;
+      font-size: 19px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .topbar {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white-50);
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--white-10);
+      background: rgba(30,27,75,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .topbar a {
+      color: var(--white-70);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .topbar a:hover { color: var(--gold); }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .hero {
+      padding: 96px 0 64px;
+      text-align: center;
+      background: linear-gradient(160deg, var(--purple-deep) 0%, var(--purple-mid) 48%, var(--purple-light) 100%);
+    }
+
+    .kicker {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(20px, 2.4vw, 26px);
+      color: var(--white-70);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .agreement {
+      padding: 56px 0;
+      border-top: 1px solid var(--white-10);
+      border-bottom: 1px solid var(--white-10);
+      margin: 48px 0;
+    }
+
+    .agreement p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.5vw, 28px);
+      line-height: 1.5;
+      color: var(--white);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .perspectives {
+      padding: 24px 0 80px;
+    }
+
+    .perspective {
+      padding: 40px;
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      border-radius: 20px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .perspective:last-of-type {
+      border-bottom: none;
+    }
+
+    .tradition {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .sigil {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+
+    .voice {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--white-70);
+      margin-bottom: 28px;
+    }
+
+    .perspective p.body {
+      font-size: clamp(19px, 1.7vw, 22px);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .perspective[data-tradition="Scripture"]  .tradition,
+    .perspective[data-tradition="Scripture"]  .sigil { color: var(--scripture); }
+    .perspective[data-tradition="Philosophy"] .tradition,
+    .perspective[data-tradition="Philosophy"] .sigil { color: var(--philosophy); }
+    .perspective[data-tradition="Science"]    .tradition,
+    .perspective[data-tradition="Science"]    .sigil { color: var(--science); }
+    .perspective[data-tradition="Secular Thought"] .tradition,
+    .perspective[data-tradition="Secular Thought"] .sigil { color: var(--secular); }
+
+    .sources {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--white-50);
+      padding-top: 16px;
+      border-top: 1px solid var(--white-10);
+    }
+
+    .sources span { display: block; margin-bottom: 4px; }
+
+    .thread {
+      padding: 80px 0 96px;
+      text-align: center;
+      border-top: 1px solid var(--white-10);
+    }
+
+    .thread .kicker { margin-bottom: 24px; }
+
+    .thread p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.35;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .outro {
+      background: linear-gradient(180deg, rgba(76,29,149,0.3), rgba(30,27,75,0.95));
+      color: var(--white);
+      padding: 80px 0 96px;
+      text-align: center;
+    }
+
+    .outro .container { max-width: 640px; }
+
+    .outro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(34px, 4.5vw, 48px);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .outro p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--white-70);
+      margin-bottom: 36px;
+    }
+
+    .cta {
+      display: inline-block;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--purple-deep);
+      background: var(--gold);
+      padding: 16px 32px;
+      border-radius: 9999px;
+      text-decoration: none;
+    }
+
+    .cta:hover { background: var(--gold-hover); }
+
+    .foot {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--white-50);
+      text-align: center;
+      padding: 32px;
+      border-top: 1px solid var(--white-10);
+      background: var(--purple-deep);
+    }
+
+    @media (max-width: 600px) {
+      .topbar { padding: 18px 20px; font-size: 11px; }
+      .hero { padding: 64px 0 40px; }
+      .agreement { padding: 40px 0; margin: 32px 0; }
+      .perspective { padding: 28px; }
+      .outro { padding: 64px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="/">DVine</a>
+  <a href="/questions/">More questions</a>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="kicker">A question from DVine</div>
+    <h1>Does life have a purpose — or do we make our own?</h1>
+    <p class="subtitle">The question behind every other question.</p>
+  </div>
+</section>
+
+<section class="agreement">
+  <div class="container">
+    <p>Nobody serious says life is meaningless. The fight is over whether meaning is something you discover or something you build. But the search itself? That's the most human thing any of us do.</p>
+  </div>
+</section>
+
+<section class="perspectives">
+  <div class="container">
+
+    <article class="perspective" data-tradition="Scripture">
+      <div class="sigil">☩</div>
+      <div class="tradition">Scripture</div>
+      <p class="voice">A still small voice.</p>
+      <p class="body">Ecclesiastes is the most surprising book in the Bible. The author tries wealth, pleasure, achievement, and knowledge, and calls all of it "meaningless, a chasing after wind." And this is Scripture. The Bible doesn't pretend purpose is obvious. But Ecclesiastes lands somewhere: "Fear God and keep his commandments, for this is the whole duty of man." Purpose isn't about what you accomplish. It's about who you belong to.</p>
+      <div class="sources">
+        <span>Ecclesiastes 1:2, 12:13</span>
+        <span>Jeremiah 29:11</span>
+      </div>
+    </article>
+
+    <article class="perspective" data-tradition="Philosophy">
+      <div class="sigil">✦</div>
+      <div class="tradition">Philosophy</div>
+      <p class="voice">Reasoned across centuries.</p>
+      <p class="body">Three thinkers, three answers to the same 3 a.m. question. Nietzsche: God is dead and you have to create meaning or be destroyed by the void. Camus: the universe is absurd but live fully anyway. Kierkegaard: meaning only comes through a leap of faith you can't reason your way into. They can't all be right. But they all agree the question is worth everything.</p>
+      <div class="sources">
+        <span>Friedrich Nietzsche, <em>Thus Spoke Zarathustra</em></span>
+        <span>Søren Kierkegaard, <em>Fear and Trembling</em></span>
+      </div>
+    </article>
+
+    <article class="perspective" data-tradition="Science">
+      <div class="sigil">◬</div>
+      <div class="tradition">Science</div>
+      <p class="voice">What evidence shows.</p>
+      <p class="body">Science can't tell you the purpose of life. But it can measure what happens when people have one. Longer lifespan. Faster recovery from illness. Measurably better mental health. Neuroscience shows meaningful activity lights up the brain's reward system differently than pleasure does. Purpose isn't a luxury. Biologically, it appears to be a need.</p>
+      <div class="sources">
+        <span>Patricia Boyle et al., Purpose in Life and Mortality (2009)</span>
+      </div>
+    </article>
+
+    <article class="perspective" data-tradition="Secular Thought">
+      <div class="sigil">◐</div>
+      <div class="tradition">Secular Thought</div>
+      <p class="voice">A view from the street.</p>
+      <p class="body">No purpose label came attached to the universe. The secular view says that's not a tragedy — it's a canvas. Meaning isn't found like buried treasure. It's built through relationships, creative work, justice, and the act of choosing to care about something beyond yourself. You're not waiting for your purpose. You're making it, whether you realize it or not.</p>
+      <div class="sources">
+        <span>Jean-Paul Sartre, <em>Existentialism Is a Humanism</em></span>
+        <span>Susan Wolf, <em>Meaning in Life and Why It Matters</em></span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="thread">
+  <div class="container">
+    <div class="kicker">What they share</div>
+    <p>Given or created, found or built — a life without purpose is a life half-lived. On that much, everyone agrees.</p>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="container">
+    <h2>DVine takes hard questions seriously.</h2>
+    <p>Read more hard questions in the app.</p>
+    <a href="/#join" class="cta">Get DVine</a>
+  </div>
+</section>
+
+<footer class="foot">
+  &copy; 2026 Jaiye Labs · <a href="/privacy/" style="color: inherit;">Privacy</a> · <a href="/terms/" style="color: inherit;">Terms</a>
+</footer>
+
+</body>
+</html>
